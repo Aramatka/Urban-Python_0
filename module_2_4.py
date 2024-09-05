@@ -19,15 +19,12 @@
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 primes = []
 not_primes = []
-for i in range(len(numbers)+1):
-    if numbers[i] == 1:
-         i= i+1
-         #print(i)
-         break
-    for j in range(i):
+for i in range(1, len(numbers)):
+   for j in range(1, i):
         if int(numbers[i]) % int(numbers[j]) == 0:
-                not_primes.append(numbers[i])
-                break
-        else: primes.append(numbers[i])
-print(primes)
-print(not_primes)
+           not_primes.append(numbers[i])
+           break
+numbers.pop(0)
+primes = list(set(numbers)-set(not_primes))
+print("Простые: ", primes)
+print("Составные: ", not_primes)
