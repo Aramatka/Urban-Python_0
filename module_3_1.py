@@ -23,25 +23,28 @@ def count_calls():
     calls +=1
     return calls
 
-count_calls()
 
-def string_info ():
+def string_info (in_string):
     global calls, count_calls
     count_calls()
-    in_string = str(input('Введите строку: '))
+    #in_string = str(input('Введите строку: '))
     out_string= (len(in_string), in_string.upper(), in_string.lower())
     return out_string
 
-def is_contains ():
+def is_contains (string, list_to_search):
     global calls, count_calls
     count_calls()
-    string = "Urban"
-    list_to_search = ("URaRban", "UrbaN")
     list_to_search_upper = [s.upper () for s in list_to_search]
     result = string.upper() in list_to_search_upper
     return result
 
-print (string_info())   
-print(is_contains())
-print(is_contains())
+print(string_info('Capybara'))
+print(string_info('Armageddon'))
+
+#print (string_info())   
+
+print(is_contains('Urban', ('ban', 'BaNaN', 'urBAN'))) # Urban ~ urBAN
+print(is_contains('cycle', ('recycling', 'cyclic'))) # No matches
+
+
 print(calls)
